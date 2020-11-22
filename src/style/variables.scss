@@ -1,0 +1,70 @@
+// color variables
+$black: #000;
+$white: #fff;
+$red: #f44;
+$blue: #1989fa;
+$orange: #FF8243;
+$orange-dark: #ed6a0c;
+$orange-light: #fffbe8;
+$green: #07c160;
+$gray: #c9c9c9;
+$gray-light: #e5e5e5;
+$gray-darker: #7d7e80;
+$gray-dark: #969799;
+
+// default colors
+$text-color: #0D1A26;
+$text-color-dark: #0D1A26;
+$text-grey: #696F8C;
+$text-blue: #142B83;
+$text-black: #545454FF;;
+$footer-grey: rgba(255,255,255,0.80);
+$footer-grey-mobile: rgba(255,255,255,0.90);
+$border-color: #D2DCF0;
+$active-color: #f2f3f5;
+$background-blue: #213EBD;
+$background-blue-light: #0F42AD;
+$background-blue-dark: #063495;
+$background-color: #f7f8fa;
+$background-color-light: #fafafa;
+$swiper-grey: #696F8C;
+$password-color: #A9A9A9;
+$remark-color:#bbb;
+$tag: #108EE9;
+// color collection
+$color: (
+  black: $black,
+  white: $white,
+  red: $red,
+  blue: $blue,
+  orange: $orange,
+  'orange-dark': $orange-dark,
+  'orange-light': $orange-light,
+  green: $green,
+  gray: $gray,
+  'gray-light': $gray-light,
+  'gray-darker': $gray-darker,
+  'gray-dark': $gray-dark,
+  'text-color': $text-color,
+  'border-color': $border-color,
+  'active-color': $active-color,
+  'background-blue': $background-blue,
+  'background-blue-light': $background-blue-light,
+  'background-blue-dark': $background-blue-dark,
+  'background-color': $background-color,
+  'background-color-light': $background-color-light,
+  'password-color': $password-color,
+  'remark-color': $remark-color,
+  'text-grey': $text-grey,
+  'text-blue': $text-blue,
+  'text-black': $text-black,
+  'footer-grey': $footer-grey,
+  'footer-grey-mobile': $footer-grey-mobile,
+  'text-color-dark': $text-color-dark,
+  'swiper-grey': $swiper-grey
+);
+
+// size variables
+$edge: 20px;
+$min-width-standard: 768px;
+$max-width-standard: 767px;
