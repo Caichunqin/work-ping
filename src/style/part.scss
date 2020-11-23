@@ -100,30 +100,30 @@ $baseSize: 20;
 @for $i from 1 through 50 {
   @each $bShort, $bLong in $box {
     @each $pShort, $pLong in $position {
-      .c-#{$bShort + $pShort}-#{$i * 4} {
-        #{$bLong}-#{$pLong}: $i * 4px;
+      .c-#{$bShort + $pShort}-#{$i * 5} {
+        #{$bLong}-#{$pLong}: $i * 5px;
       }
       .c-#{$bShort + $pShort} {
         @extend .c-#{$bShort + $pShort}-#{$baseSize};
       }
     }
-    .c-#{$bShort + lr}-#{$i * 4} {
-      @extend .c-#{$bShort + l}-#{$i * 4};
-      @extend .c-#{$bShort + r}-#{$i * 4};
+    .c-#{$bShort + lr}-#{$i * 5} {
+      @extend .c-#{$bShort + l}-#{$i * 5};
+      @extend .c-#{$bShort + r}-#{$i * 5};
     }
     .c-#{$bShort + lr} {
       @extend .c-#{$bShort + lr}-#{$baseSize};
     }
-    .c-#{$bShort + tb}-#{$i * 4} {
-      @extend .c-#{$bShort + t}-#{$i * 4};
-      @extend .c-#{$bShort + b}-#{$i * 4};
+    .c-#{$bShort + tb}-#{$i * 5} {
+      @extend .c-#{$bShort + t}-#{$i * 5};
+      @extend .c-#{$bShort + b}-#{$i * 5};
     }
     .c-#{$bShort + tb} {
       @extend .c-#{$bShort + tb}-#{$baseSize};
     }
-    .c-#{$bShort}-#{$i * 4} {
-      @extend .c-#{$bShort + lr}-#{$i * 4};
-      @extend .c-#{$bShort + tb}-#{$i * 4};
+    .c-#{$bShort}-#{$i * 5} {
+      @extend .c-#{$bShort + lr}-#{$i * 5};
+      @extend .c-#{$bShort + tb}-#{$i * 5};
     }
     .c-#{$bShort} {
       @extend .c-#{$bShort}-#{$baseSize};

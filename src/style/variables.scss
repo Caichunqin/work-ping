@@ -15,6 +15,7 @@ $gray-dark: #969799;
 // default colors
 $text-color: #0D1A26;
 $text-color-dark: #0D1A26;
+$text-red: #B22E2A;
 $text-grey: #696F8C;
 $text-blue: #142B83;
 $text-black: #545454FF;;
@@ -57,6 +58,7 @@ $color: (
   'remark-color': $remark-color,
   'text-grey': $text-grey,
   'text-blue': $text-blue,
+  'text-red': $text-red,
   'text-black': $text-black,
   'footer-grey': $footer-grey,
   'footer-grey-mobile': $footer-grey-mobile,
