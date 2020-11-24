@@ -57,10 +57,11 @@
           </div>
           <!-- <transition name="slide-fade"> -->
             <div class="pig-info-detail" :class="activeIndex === index ? 'actived border-top-none': ''" v-for="(listItem, idx) in item.list" :key="idx">
-              <div class="highest-img-wrap" v-if="listItem.highestPrice">
+              <!-- <div class="highest-img-wrap" v-if="listItem.highestPrice">
                 <img src="../assets/card-red.png" class="highest-img">
-                <span class="c-p-c c-fs-18 c-fw-5 c-c-white">最高价</span>
-              </div>
+                <span class="c-fs-14 c-fw-5 c-c-white highest-text">最高价</span>
+              </div> -->
+              <img src="../assets/card-red.png" class="highest-img">
               <div class="c-d-f c-ai-c c-pl-20 c-pt-20">
                 <div class="c-line-red c-mr-10"></div>
                 <span class="c-fs-26 c-fw-b c-c-text-color-dark">{{listItem.name}}</span>
@@ -202,20 +203,31 @@ export default {
       &:nth-last-of-type(1) {
         border-radius: 0 0 10px 10px;
       }
-      .highest-img-wrap {
-        border: 1px solid green;
-        position: absolute;
-        top: 24px;
-        right: -10px;/*no*/
-        width: 120px;
-        .highest-img {
+      // .highest-img-wrap {
+      //   border: 1px solid green;
+      //   position: absolute;
+      //   top: 24px;
+      //   right: -10px;/*no*/
+      //   width: 100px;
+      //   .highest-img {
+      //     width :100%;
+      //     display: block;
+      //   }
+      //   .highest-text {
+      //     position: absolute;
+      //     top: 6px;
+      //     left: 50%;
+      //     transform: translateX(-50%);
+      //   }
+      // }
+      .highest-img {
           width :100%;
-          // position: absolute;
-          // top: 24px;
-          // right: -10px;/*no*/
-          // width: 90px;
+          display: block;
+          position: absolute;
+          top: 24px;
+          right: -10px;/*no*/
+          width: 90px;
         }
-      }
       .detail-img {
         height: 32px;
       }
