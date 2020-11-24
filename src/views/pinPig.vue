@@ -13,7 +13,7 @@
             <div class="c-mt-30">
               <van-tree-select height="55vw" :items="items" :main-active-index.sync="active">
                 <template #content>
-
+                  1
                 </template>
               </van-tree-select>
             </div>
