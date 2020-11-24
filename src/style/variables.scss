@@ -13,10 +13,11 @@ $gray-darker: #7d7e80;
 $gray-dark: #969799;
 
 // default colors
-$text-color: #0D1A26;
-$text-color-dark: #0D1A26;
+$text-color: #666666;
+$text-color-dark: #373737;
 $text-red: #B22E2A;
-$text-grey: #696F8C;
+$text-grey: #7F7F7F;
+$text-grey-dark: #707070;
 $text-blue: #142B83;
 $text-black: #545454FF;;
 $footer-grey: rgba(255,255,255,0.80);
@@ -59,6 +60,7 @@ $color: (
   'text-grey': $text-grey,
   'text-blue': $text-blue,
   'text-red': $text-red,
+  'text-grey-dark': $text-grey-dark,
   'text-black': $text-black,
   'footer-grey': $footer-grey,
   'footer-grey-mobile': $footer-grey-mobile,

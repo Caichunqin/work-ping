@@ -64,7 +64,7 @@ export default {
   .tab-content {
     min-height: calc(100vh - 50px);
     padding-bottom: 50px;
-    padding: 20px 30px;
+    // padding: 20px 30px;
     background: #F3F3F3;
   }
   // .footer {

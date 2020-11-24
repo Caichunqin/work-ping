@@ -24,6 +24,6 @@ div, section {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #4E4E4E;
+  color: #666666;
 }
 </style>

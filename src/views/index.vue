@@ -1,16 +1,21 @@
 <template>
   <div class="p-index-wrap">
-    <div class="index-top"></div>
-    <div class="index-btn-wrap">
-      <van-button :icon="require('../assets/guize.png')" block>拼猪规则</van-button>
-      <van-button class="btn-right" :icon="require('../assets/wenhao.png')" block>猪肉选购指南</van-button>
+    <van-nav-bar
+      title="罗牛山">
+    </van-nav-bar>
+    <div class="c-page-wrap">
+      <div class="index-top"></div>
+      <div class="index-btn-wrap">
+        <van-button :icon="require('../assets/guize.png')" block>拼猪规则</van-button>
+        <van-button class="btn-right" :icon="require('../assets/wenhao.png')" block>猪肉选购指南</van-button>
+      </div>
+      <!-- <img class="btn-bottom-img" src="../assets/index-btn.png"> -->
+      <div class="c-p-r c-mt-20" @click="toUrl('/pigList')">
+        <img class="c-d-b btn-bottom-img" src="../assets/index-btn.png">
+        <span class="c-p-c c-fs-38 c-c-white c-fw-b">去拼猪</span>
+      </div>
+      <!-- <div class="confirm-btn"></div> -->
     </div>
-    <!-- <img class="btn-bottom-img" src="../assets/index-btn.png"> -->
-    <div class="c-p-r c-mt-20" @click="toUrl('/pigList')">
-      <img class="c-d-b btn-bottom-img" src="../assets/index-btn.png">
-      <span class="c-p-c c-fs-38 c-c-white c-fw-b">去拼猪</span>
-    </div>
-    <!-- <div class="confirm-btn"></div> -->
   </div>
 </template>
 
