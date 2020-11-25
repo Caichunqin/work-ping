@@ -30,6 +30,10 @@ export default {
 </script>
 <style lang="scss">
 .p-index-wrap {
+  .van-button {
+    border-radius: 10px;
+  }
+
   .index-top {
     height: 770px;
     background-color: #fff;
