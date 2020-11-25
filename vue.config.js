@@ -17,7 +17,8 @@ module.exports = {
             'border-color': '#eee',
             'tree-select-item-active-color': '#B22E2A',
             'tree-select-nav-background-color': '#F3F3F3',
-            'tree-select-content-background-color': '#F3F3F3'
+            'tree-select-content-background-color': '#F3F3F3',
+            'tabs-bottom-bar-width': '26px'
             // 'stepper-background-color': '#fff'
             // 或者可以通过 less 文件覆盖（文件路径为绝对路径）
             // hack: 'true; @import "your-less-file-path.less";'

@@ -10,7 +10,7 @@
         <van-button class="btn-right" :icon="require('../assets/wenhao.png')" block>猪肉选购指南</van-button>
       </div>
       <!-- <img class="btn-bottom-img" src="../assets/index-btn.png"> -->
-      <div class="c-p-r c-mt-20" @click="toUrl('/pigList')">
+      <div class="c-p-r c-mt-30" @click="toUrl('/pigList')">
         <img class="c-d-b btn-bottom-img" src="../assets/index-btn.png">
         <span class="c-p-c c-fs-38 c-c-white c-fw-b">去拼猪</span>
       </div>
@@ -36,7 +36,7 @@ export default {
   }
   .index-btn-wrap {
     display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
     .btn-right {
       margin-left: 30px;
     }

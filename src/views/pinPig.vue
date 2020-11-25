@@ -151,7 +151,7 @@ export default {
         img: 'http://pic29.photophoto.cn/20131225/0035035981830687_b.jpg',
         title: '1号猪（97182365）',
         killTime: '2020-11-20',
-        deadline: 1000
+        deadline: 12000
       },
       // 按部位分类的左侧选择 list
       placeGoodsList: [{
@@ -285,6 +285,9 @@ export default {
   .van-tree-select__content {
     flex: 5!important;
   }
+  .van-tree-select__nav-item {
+    padding: 24px 4px;
+  }
   .van-stepper__input {
     width: 80px;
     height: 42px;
@@ -298,8 +301,11 @@ export default {
     width: 40px;
     height: 42px;
   }
-  .van-tree-select__nav-item {
-    padding: 24px 4px;
+  .van-tabs--line .van-tabs__wrap {
+    height: 80px;
+  }
+  .van-tab {
+    font-size: 28px;
   }
 
   .pig-info-wrap {
