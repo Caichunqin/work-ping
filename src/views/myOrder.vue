@@ -61,7 +61,7 @@
                 <img src="../assets/card-red.png" class="highest-img">
                 <span class="c-fs-14 c-fw-5 c-c-white highest-text">最高价</span>
               </div> -->
-              <img src="../assets/card-red.png" class="highest-img">
+              <img src="../assets/card-red1.png" class="highest-img">
               <div class="c-d-f c-ai-c c-pl-20 c-pt-20">
                 <div class="c-line-red c-mr-10"></div>
                 <span class="c-fs-26 c-fw-b c-c-text-color-dark">{{listItem.name}}</span>
@@ -221,13 +221,12 @@ export default {
       //   }
       // }
       .highest-img {
-          width :100%;
-          display: block;
-          position: absolute;
-          top: 24px;
-          right: -10px;/*no*/
-          width: 90px;
-        }
+        width : 90px;
+        display: block;
+        position: absolute;
+        top: 24px;
+        right: -10px;/*no*/
+      }
       .detail-img {
         height: 32px;
       }

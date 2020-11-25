@@ -18,3 +18,26 @@
   background: #B22E2A;
   border-radius: 2px;
 }
+
+.c-tag-yellow {
+  width: 100%;
+  color: #FF9D1D;
+  border: 1px solid #FF9D1D;/*no*/
+  background-color: rgb(255, 247, 240);
+}
+
+.c-tag-red {
+  width: 100%;
+  color: #D4413E;
+  border: 1px solid #D4413E;/*no*/
+  background-color: rgb(255, 234, 234);
+}
+
+.pai-btn {
+  width: 120px;
+  height: 42px;
+  line-height: 42px;
+  color: #fff;
+  background-color: #B22E2A;
+  border-radius: 6px;
+}

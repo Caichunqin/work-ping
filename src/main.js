@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { Tabbar, TabbarItem, Button, NavBar, Icon, CountDown, TreeSelect, Tab, Tabs } from 'vant'
+import { Tabbar, TabbarItem, Button, NavBar, Icon, CountDown, TreeSelect, Tab, Tabs, Stepper } from 'vant'
 
 Vue.config.productionTip = false
 Vue.use(Tabbar)
@@ -14,6 +14,7 @@ Vue.use(CountDown)
 Vue.use(TreeSelect)
 Vue.use(Tab)
 Vue.use(Tabs)
+Vue.use(Stepper)
 new Vue({
   router,
   store,

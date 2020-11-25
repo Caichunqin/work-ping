@@ -216,6 +216,10 @@ $baseSize: 20;
   align-items: flex-start;
 }
 
+.c-ai-fe {
+  align-items: flex-end;
+}
+
 .c-noshrink {
   flex-shrink: 0;
 }

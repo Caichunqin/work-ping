@@ -34,8 +34,8 @@
             </div>
             <ul class="c-fs-24">
               <li class="c-ptb-20 c-pl-20 border">厂名：{{item.detailInfo.name}}</li>
-              <li class="c-ptb-20 c-pl-20 border">厂址：{{item.detailInfo.name}}</li>
-              <li class="c-ptb-20 c-pl-20 border">联系电话：{{item.detailInfo.name}}</li>
+              <li class="c-ptb-20 c-pl-20 border">厂址：{{item.detailInfo.address}}</li>
+              <li class="c-ptb-20 c-pl-20 border">联系电话：{{item.detailInfo.phone}}</li>
               <li class="c-ptb-20 c-pl-20 border">
                 <span class="c-mr-30">保质期：{{item.detailInfo.expirationDate}}</span> | <span class="c-ml-30">猪肉种类：{{item.detailInfo.type}}</span>
               </li>
