@@ -10,7 +10,7 @@
             <img :src="item.img" class="info-img">
             <div class="c-ml-30 c-c-text-grey text-wrap">
               <span class="c-fs-28 c-c-text-color-dark c-fw-b">{{item.title}}</span>
-              <div class="c-d-f c-jc-sb c-ai-c" @click="activeIndex = activeIndex === '' ? index : ''">
+              <div class="c-d-f c-jc-sb c-ai-c" @click="activeIndex = activeIndex === index ? '' : index">
                 <span>订单状态：{{item.status}}</span>
                 <van-icon :name="activeIndex === index ? 'arrow-up':'arrow-down'"/>
               </div>
@@ -22,6 +22,7 @@
           </div>
           <!-- <transition name="slide-fade"> -->
             <div class="pig-info-detail" :class="activeIndex === index ? 'actived border-top-none': ''" v-for="(listItem, idx) in item.list" :key="idx">
+              <img src="../assets/card-red1.png" class="highest-img" v-if="listItem.highestPrice">
               <div class="c-d-f c-ai-c c-pl-20 c-pt-20">
                 <div class="c-line-red c-mr-10"></div>
                 <span class="c-fs-26 c-fw-b c-c-text-color-dark">{{listItem.name}}</span>
@@ -45,7 +46,7 @@
             <img :src="item.img" class="info-img">
             <div class="c-ml-30 c-c-text-grey text-wrap">
               <span class="c-fs-28 c-c-text-color-dark c-fw-b">{{item.title}}</span>
-              <div class="c-d-f c-jc-sb c-ai-c" @click="activeIndex = activeIndex === '' ? index : ''">
+              <div class="c-d-f c-jc-sb c-ai-c" @click="activeIndex = activeIndex === index ? '' : index">
                 <span>订单状态：{{item.status}}</span>
                 <van-icon :name="activeIndex === index ? 'arrow-up':'arrow-down'"/>
               </div>
@@ -57,11 +58,7 @@
           </div>
           <!-- <transition name="slide-fade"> -->
             <div class="pig-info-detail" :class="activeIndex === index ? 'actived border-top-none': ''" v-for="(listItem, idx) in item.list" :key="idx">
-              <!-- <div class="highest-img-wrap" v-if="listItem.highestPrice">
-                <img src="../assets/card-red.png" class="highest-img">
-                <span class="c-fs-14 c-fw-5 c-c-white highest-text">最高价</span>
-              </div> -->
-              <img src="../assets/card-red1.png" class="highest-img">
+              <img src="../assets/card-red1.png" class="highest-img" v-if="listItem.highestPrice">
               <div class="c-d-f c-ai-c c-pl-20 c-pt-20">
                 <div class="c-line-red c-mr-10"></div>
                 <span class="c-fs-26 c-fw-b c-c-text-color-dark">{{listItem.name}}</span>
@@ -87,6 +84,7 @@
 </template>
 <script>
 import { back, toUrl } from '../shared/util'
+import { getOrderList } from '../api/api'
 export default {
   data () {
     return {
@@ -99,12 +97,14 @@ export default {
           totalPrice: '82元',
           list: [{
             name: '肋排',
+            highestPrice: true,
             partImg: 'https://tse3-mm.cn.bing.net/th/id/OIP.we_pQY7hkturwMQ9Uzd1hgHaE6?pid=Api&rs=1',
             basePrice: '40',
             weight: '3',
             dealPrice: '40.12'
           }, {
             name: '肋排',
+            highestPrice: false,
             partImg: 'https://img.jk51.com/img_jk51/112164879.jpeg',
             basePrice: '40',
             weight: '3',
@@ -139,12 +139,14 @@ export default {
           totalPrice: '82元',
           list: [{
             name: '肋排',
+            highestPrice: false,
             partImg: 'https://img.jk51.com/img_jk51/112164879.jpeg',
             basePrice: '40',
             weight: '3',
             dealPrice: '40.12'
           }, {
             name: '肋排',
+            highestPrice: true,
             partImg: 'https://img.jk51.com/img_jk51/112164879.jpeg',
             basePrice: '40',
             weight: '3',
@@ -156,8 +158,16 @@ export default {
   },
   methods: {
     back,
-    toUrl
+    toUrl,
+    async getOrderList () {
+      const res = await getOrderList()
+      this.dataList = res.data.list
+    }
   }
+  // 恢复以下注释，请求页面数据
+  // mounted () {
+  //   this.getOrderList()
+  // }
 }
 </script>
 

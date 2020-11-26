@@ -7,89 +7,95 @@
       @click-left="back">
     </van-nav-bar>
     <div class="c-page-wrap">
-      <div>
-        <div class="c-mb-20 pig-info-wrap">
-          <div class="c-d-f c-ai-c c-p-20 c-fs-22 pig-info-top">
-            <img :src="pigInfo.img" class="info-img">
-            <div class="c-ml-40 c-c-text-grey text-wrap">
-              <span class="c-fs-28 c-c-text-red c-fw-b">{{pigInfo.title}}</span>
-              <div class="c-d-f c-jc-sb c-ai-c">
-                <span>预计屠宰时间：{{pigInfo.killTime}}</span>
-              </div>
-              <div class="c-d-f c-ai-c">
-                <span>竞拍截止时间：</span>
-                <van-count-down :time="pigInfo.deadline">
-                  <template #default="timeData">
-                    <span class="block">{{ timeData.hours }}:{{ timeData.minutes }}:{{ timeData.seconds }}</span>
-                  </template>
-                </van-count-down>
-              </div>
+      <div class="c-mb-20 pig-info-wrap">
+        <div class="c-d-f c-ai-c c-p-20 c-fs-22 pig-info-top">
+          <img :src="pigInfo.img" class="info-img">
+          <div class="c-ml-40 c-c-text-grey text-wrap">
+            <span class="c-fs-28 c-c-text-red c-fw-b">{{pigInfo.title}}</span>
+            <div class="c-d-f c-jc-sb c-ai-c">
+              <span>预计屠宰时间：{{pigInfo.killTime}}</span>
+            </div>
+            <div class="c-d-f c-ai-c">
+              <span>竞拍截止时间：</span>
+              <van-count-down :time="pigInfo.deadline">
+                <template #default="timeData">
+                  <span class="block">{{ timeData.hours }}:{{ timeData.minutes }}:{{ timeData.seconds }}</span>
+                </template>
+              </van-count-down>
             </div>
           </div>
         </div>
       </div>
       <div class="tree-list-wrap">
-        <van-tabs v-model="activeName" color="#B22E2A" background="transparent" title-active-color="#373737" title-inactive-color="#B3B3B3">
+        <van-tabs v-model="activeName" color="#B22E2A" background="transparent" title-active-color="#373737" title-inactive-color="#B3B3B3" sticky>
           <van-tab title="部位分类">
-            <div class="c-mt-30">
-              <van-tree-select :items="placeItems" :main-active-index.sync="active" @click-nav="selectTree" height="60vh">
+            <div class="c-mt-30" v-if="activeName === 0">
+              <van-tree-select :items="placeItems" :main-active-index.sync="placeTreeActive" @click-nav="arg => selectTree(arg, 1)" height="70vh">
                 <template #content>
-                  <div v-for="(item, index) in placeGoodsList" :key="index" class="c-ml-20 c-mb-20 c-mr-10 c-bc-white">
-                    <div class="c-d-f c-ai-c c-p-r c-pl-20 c-ptb-15 border">
-                      <img v-if="item.isHighest" src="../assets/card-red1.png" class="highest-img">
-                      <img v-if="item.isOutPrice" src="../assets/card-yellow1.png" class="highest-img">
-                      <img src="../assets/pai.png" class="c-mr-20 pai-img">
-                      <span class="c-fs-30 c-fw-b c-c-text-color-dark">{{item.name}}</span>
-                    </div>
-                    <div class="c-d-f c-ai-c c-p-20 c-pl-20 c-fs-24 c-c-text-grey pig-order-detail">
-                      <img :src="item.img" class="info-img">
-                      <div class="c-ml-30 text-wrap c-w-100">
-                        <div class="c-d-f c-fs-20">
-                          <div class="c-tag-yellow">预估重量：{{item.weight}}斤</div>
-                          <div class="c-ml-10 c-tag-red">即时价格：{{item.immediatePrice}}元</div>
-                        </div>
-                        <div class="c-d-f c-jc-sb c-ai-fe">
-                          <div class="c-d-f c-fd-c c-ai-c">
-                            <span class="c-mb-5 c-c-text-grey-dark c-fw-5">竞拍价格</span>
-                            <van-stepper v-model="item.dealPrice" step="0.1" :decimal-length="1" />
+                  <div v-if="placeGoodsList.length > 0">
+                    <div v-for="(item, index) in placeGoodsList" :key="index" class="c-ml-20 c-mb-20 c-mr-10 c-bc-white c-br-10">
+                      <div class="c-d-f c-ai-c c-p-r c-pl-20 c-ptb-15 border">
+                        <img v-if="item.isHighest" src="../assets/card-red1.png" class="highest-img">
+                        <img v-if="item.isOutPrice" src="../assets/card-yellow1.png" class="highest-img">
+                        <img src="../assets/pai.png" class="c-mr-20 pai-img">
+                        <span class="c-fs-30 c-fw-b c-c-text-color-dark">{{item.name}}</span>
+                      </div>
+                      <div class="c-d-f c-ai-c c-p-20 c-pl-20 c-fs-24 c-c-text-grey pig-order-detail">
+                        <img :src="item.img" class="info-img">
+                        <div class="c-ml-30 text-wrap c-w-100">
+                          <div class="c-d-f c-fs-20">
+                            <div class="c-tag-yellow">预估重量：{{item.weight}}斤</div>
+                            <div class="c-ml-10 c-tag-red">即时价格：{{item.immediatePrice}}元</div>
                           </div>
-                          <div class="pai-btn" @click="clickItem(item)">竞拍</div>
-                          <!-- <span>竞拍价格：</span><span class="c-c-text-red">{{item.dealPrice}}元</span> -->
+                          <div class="c-d-f c-jc-sb c-ai-fe">
+                            <div class="c-d-f c-fd-c c-ai-c">
+                              <span class="c-mb-5 c-c-text-grey-dark c-fw-5">竞拍价格</span>
+                              <van-stepper v-model="item.dealPrice" step="0.1" :decimal-length="1" />
+                            </div>
+                            <div class="c-p-r pai-btn" @click="clickItem(item)">
+                              <span class="c-p-c">竞 拍</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <van-empty v-else description="暂无内容" />
                 </template>
               </van-tree-select>
             </div>
           </van-tab>
           <van-tab title="做法分类">
-            <div class="c-mt-30">
-              <van-tree-select :items="menuItems" :main-active-index.sync="active" @click-nav="selectTree" height="60vh">
+            <div class="c-mt-30" v-if="activeName === 1">
+              <van-tree-select :items="menuItems" :main-active-index.sync="menuTreeActive" @click-nav="arg => selectTree(arg, 2)" height="70vh">
                 <template #content>
-                  <div v-for="(item, index) in menuGoodsList" :key="index" class="c-ml-20 c-mb-20 c-mr-10 c-bc-white">
-                    <div class="c-d-f c-ai-c c-pl-20 c-ptb-15 border">
-                      <img src="../assets/pai.png" class="c-mr-20 pai-img">
-                      <span class="c-fs-30 c-fw-b c-c-text-color-dark">{{item.name}}</span>
-                    </div>
-                    <div class="c-d-f c-ai-c c-p-20 c-pl-20 c-fs-24 c-c-text-grey pig-order-detail">
-                      <img :src="item.img" class="info-img">
-                      <div class="c-ml-30 text-wrap c-w-100">
-                        <div class="c-d-f c-fs-20">
-                          <div class="c-tag-yellow">预估重量：{{item.weight}}斤</div>
-                          <div class="c-ml-10 c-tag-red">即时价格：{{item.immediatePrice}}元</div>
-                        </div>
-                        <div class="c-d-f c-jc-sb c-ai-fe">
-                          <div class="c-d-f c-fd-c c-ai-c">
-                            <span class="c-mb-5 c-c-text-grey-dark c-fw-5">竞拍价格</span>
-                            <van-stepper v-model="item.dealPrice" step="0.1" :decimal-length="1" />
+                  <div v-if="menuGoodsList.length > 0">
+                    <div v-for="(item, index) in menuGoodsList" :key="index" class="c-ml-20 c-mb-20 c-mr-10 c-bc-white c-br-10">
+                      <div class="c-d-f c-ai-c c-pl-20 c-ptb-15 border">
+                        <img src="../assets/pai.png" class="c-mr-20 pai-img">
+                        <span class="c-fs-30 c-fw-b c-c-text-color-dark">{{item.name}}</span>
+                      </div>
+                      <div class="c-d-f c-ai-c c-p-20 c-pl-20 c-fs-24 c-c-text-grey pig-order-detail">
+                        <img :src="item.img" class="info-img">
+                        <div class="c-ml-30 text-wrap c-w-100">
+                          <div class="c-d-f c-fs-20">
+                            <div class="c-tag-yellow">预估重量：{{item.weight}}斤</div>
+                            <div class="c-ml-10 c-tag-red">即时价格：{{item.immediatePrice}}元</div>
                           </div>
-                          <div class="pai-btn" @click="clickItem(item)">竞拍</div>
-                          <!-- <span>竞拍价格：</span><span class="c-c-text-red">{{item.dealPrice}}元</span> -->
+                          <div class="c-d-f c-jc-sb c-ai-fe">
+                            <div class="c-d-f c-fd-c c-ai-c">
+                              <span class="c-mb-5 c-c-text-grey-dark c-fw-5">竞拍价格</span>
+                              <van-stepper v-model="item.dealPrice" step="0.1" :decimal-length="1" />
+                            </div>
+                            <div class="c-p-r pai-btn" @click="clickItem(item)">
+                              <span class="c-p-c">竞 拍</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <van-empty v-else description="暂无内容" />
                 </template>
               </van-tree-select>
             </div>
@@ -101,17 +107,42 @@
 </template>
 <script>
 import { back, toUrl } from '../shared/util'
+import { getPigPartInfo, getPartList } from '../api/api'
 export default {
   name: 'pinPig',
   data () {
     return {
-      active: 0,
+      pigId: '',
+      placeTreeActive: 0,
+      menuTreeActive: 0,
       activeName: 0,
       stepValue: 1,
       // 部位分类树
       placeItems: [{
         id: 1,
         text: '肋排'
+      }, {
+        id: 2,
+        text: '里脊'
+      }, {
+        id: 3,
+        text: '前腿',
+        dot: true
+      }, {
+        id: 4,
+        text: '前肘'
+      }, {
+        id: 5,
+        text: '后腿'
+      }, {
+        id: 6,
+        text: '小排'
+      }, {
+        id: 7,
+        text: '五花肉'
+      }, {
+        id: 8,
+        text: '...'
       }, {
         id: 2,
         text: '里脊'
@@ -153,7 +184,7 @@ export default {
         killTime: '2020-11-20',
         deadline: 12000
       },
-      // 按部位分类的左侧选择 list
+      // 按部位分类的右侧 list
       placeGoodsList: [{
         id: 1,
         name: '肋排1',
@@ -226,7 +257,7 @@ export default {
         immediatePrice: 40,
         dealPrice: 40.2
       }],
-      // 按做法分类的左侧选择 list
+      // 按做法分类的右侧 list
       menuGoodsList: [{
         id: 1,
         name: '肋排1',
@@ -255,24 +286,46 @@ export default {
   methods: {
     back,
     toUrl,
-    selectTree (msg) {
-      console.log(msg)
+    async getPageInfo (pigId) {
+      const res = await getPigPartInfo({ pigId })
+      console.log(res)
+    },
+    async selectTree (index, type) {
+      let currentTreeNode = {}
+      currentTreeNode = type === 1 ? this.placeItems[index] : this.menuItems[index]
+      const res = await getPartList()
+      const list = res.data || []
+      type === 1 ? this.placeGoodsList = list : this.menuGoodsList = list
+      console.log('place', index, currentTreeNode)
     },
     clickItem (id) {
       console.log('竞拍了：', id)
     }
+  },
+  mounted () {
+    this.pigId = this.$route.query.pigId || ''
+    this.getPageInfo(this.pigId)
   }
 }
 </script>
 <style lang="scss">
 .p-pin-pig-wrap {
+  .pin-page-wrap {
+    // display: flex;
+    // flex-direction: column;
+    // height: calc(100vh - 46px);/*no*/
+    // padding: 20px 30px;
+    // background: #F3F3F3;
+    // border: 1px solid blue;
+    // overflow: auto;
+  }
   .van-sidebar-item--select {
     color: #B22E2A;
     background-color: #fff!important;
     border-radius: 20px;
   }
   .van-sidebar-item--select::before {
-    background-color: transparent;
+    background-color: #fff;
   }
   .van-sidebar-item {
     // width: 120px!important;

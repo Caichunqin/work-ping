@@ -10,9 +10,9 @@
       <div class="c-fs-24 c-fw-4 c-mb-20 pig-info-wrap" v-for="(item, index) in dataList" :key="index">
         <div class="c-d-f c-ai-c c-p-20 c-fs-22 pig-info-top" :class="activeIndex === index ? 'border-bottom-none' : ''">
           <img :src="item.img" class="info-img">
-          <div class="c-ml-30 c-c-text-grey text-wrap">
+          <div class="c-ml-40 c-c-text-grey text-wrap">
             <span class="c-fs-28 c-c-text-red c-fw-b">{{item.title}}</span>
-            <div class="c-d-f c-jc-sb c-ai-c" @click="activeIndex = activeIndex === '' ? index : ''">
+            <div class="c-d-f c-jc-sb c-ai-c" @click="activeIndex = activeIndex === index ? '' : index">
               <span>预计屠宰时间：{{item.killTime}}</span>
               <van-icon :name="activeIndex === index ? 'arrow-up':'arrow-down'"/>
             </div>
@@ -42,7 +42,7 @@
               <li class="c-pt-20 c-pb-30 c-pl-20">
                 <span class="c-mr-30">产地：{{item.detailInfo.origin}}</span> | <span class="c-ml-30">省份：{{item.detailInfo.province}}</span>
               </li>
-              <li class="c-fs-32 pin-btn" @click="toUrl('/pinPig')">拼猪</li>
+              <li class="c-fs-32 pin-btn" @click="toUrl('/pinPig', {pigId: item.id})">拼猪</li>
             </ul>
           </div>
         </transition>
@@ -52,12 +52,14 @@
 </template>
 <script>
 import { back, toUrl } from '../shared/util'
+import { getPigList } from '../api/api'
 export default {
   data () {
     return {
       activeIndex: '',
       dataList: [
         {
+          id: 1,
           img: 'http://pic29.photophoto.cn/20131225/0035035981830687_b.jpg',
           title: '1号猪（97182365）',
           killTime: '2020-11-20',
@@ -73,6 +75,7 @@ export default {
           }
         },
         {
+          id: 2,
           img: 'http://pic29.photophoto.cn/20131225/0035035981830687_b.jpg',
           title: '1号猪（97182365）',
           killTime: '2020-11-20',
@@ -88,6 +91,7 @@ export default {
           }
         },
         {
+          id: 3,
           img: 'http://pic29.photophoto.cn/20131225/0035035981830687_b.jpg',
           title: '1号猪（97182365）',
           killTime: '2020-11-20',
@@ -107,8 +111,16 @@ export default {
   },
   methods: {
     back,
-    toUrl
+    toUrl,
+    async getPigList () {
+      const res = await getPigList()
+      this.dataList = res.data.list
+    }
   }
+  // 恢复以下注释，请求页面数据
+  // mounted () {
+  //   this.getPigList()
+  // }
 }
 </script>
 

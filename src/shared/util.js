@@ -25,6 +25,6 @@ export function back () {
   }
 }
 
-export function toUrl (path = '') {
-  this.$router.push({ path: path })
+export function toUrl (path = '', query = {}) {
+  this.$router.push({ path: path, query: query })
 }
