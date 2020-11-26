@@ -4,7 +4,7 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   devServer: {
-    proxy: 'https://secdevwechat.monitorway.net/mwapi'
+    proxy: 'https://www.baidu.com'
   },
   css: {
     // 默认生产环境提取css文件，在多层级目录下会有路径问题，此处禁止提取css文件
@@ -14,7 +14,9 @@ module.exports = {
         prependData: `
           @import "@/style/variables.scss";
         `
-        // outputStyle: 'expanded'
+        // sassOptions: {
+        //   outputStyle: 'expanded'
+        // }
       },
       less: {
         // 若 less-loader 版本小于 6.0，请移除 lessOptions 这一级，直接配置选项。

@@ -17,26 +17,6 @@
         </template>
       </van-tabbar-item>
     </van-tabbar>
-    <!-- <div class="footer">
-      <div class="c-f-1">
-        <router-link to="index">
-          <div @click.stop="activeIndex = 1" class="tab-item">
-            <img class="index-img" v-show="activeIndex === 1" src="../assets/index-red.png">
-            <img class="index-img" v-show="activeIndex === 2" src="../assets/index-grey.png">
-            <span>首页</span>
-          </div>
-        </router-link>
-      </div>
-      <div class="c-f-1">
-        <router-link to="order">
-          <div @click.stop="activeIndex = 2" class="tab-item">
-            <img class="index-img" v-show="activeIndex === 2" src="../assets/order-red.png">
-            <img class="index-img" v-show="activeIndex === 1" src="../assets/order-grey.png">
-            <span>我的订单</span>
-          </div>
-        </router-link>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -62,25 +42,9 @@ export default {
 <style lang="scss">
 .p-tabs-wrap {
   .tab-content {
-    min-height: calc(100vh - 50px);
-    padding-bottom: 50px;
-    // padding: 20px 30px;
+    min-height: calc(100vh - 96PX);
+    padding-bottom: 50PX;
     background: #F3F3F3;
   }
-  // .footer {
-  //   display: flex;
-  //   align-items: center;
-  //   height: 50px;
-  //   background-color: white;
-  //   .tab-item {
-  //     display: flex;
-  //     flex-direction: column;
-  //     align-items: center;
-  //     width: 50%;
-  //     .index-img {
-  //       width: 16px;
-  //     }
-  //   }
-  // }
 }
 </style>

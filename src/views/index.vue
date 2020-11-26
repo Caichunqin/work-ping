@@ -3,8 +3,8 @@
     <van-nav-bar
       title="罗牛山">
     </van-nav-bar>
-    <div class="c-d-f c-fd-c index-page-wrap">
-      <div class="index-top" style="border: 1px solid green; flex: 1"></div>
+    <div class="c-page-wrap">
+      <div class="index-top"></div>
       <div>
         <div class="index-btn-wrap">
           <van-button :icon="require('../assets/guize.png')" block>拼猪规则</van-button>
@@ -34,13 +34,8 @@ export default {
     border-radius: 10px;
   }
 
-  .index-page-wrap {
-    height: calc(100vh - 156px);/*no*/
-    padding: 20px 30px;
-    background: #F3F3F3;
-  }
   .index-top {
-    height: 770px;
+    height: 820px;
     background-color: #fff;
   }
   .index-btn-wrap {
@@ -52,13 +47,6 @@ export default {
   }
   .btn-bottom-img {
     width: 100%;
-    // box-shadow: 6px 11px 28px 4px rgba(120, 51, 16, 0.06);
   }
-  // .confirm-btn {
-  //   height: 100px;
-  //   border-radius: 20px;
-  //   font-size: 38px;
-  //   box-shadow: 6px 11px 28px 4px rgba(120, 51, 16, 0.06);
-  // }
 }
 </style>

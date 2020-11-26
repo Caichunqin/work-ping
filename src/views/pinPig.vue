@@ -143,28 +143,6 @@ export default {
       }, {
         id: 8,
         text: '...'
-      }, {
-        id: 2,
-        text: '里脊'
-      }, {
-        id: 3,
-        text: '前腿',
-        dot: true
-      }, {
-        id: 4,
-        text: '前肘'
-      }, {
-        id: 5,
-        text: '后腿'
-      }, {
-        id: 6,
-        text: '小排'
-      }, {
-        id: 7,
-        text: '五花肉'
-      }, {
-        id: 8,
-        text: '...'
       }],
       // 做法分类数
       menuItems: [{
@@ -301,24 +279,25 @@ export default {
     clickItem (id) {
       console.log('竞拍了：', id)
     }
-  },
-  mounted () {
-    this.pigId = this.$route.query.pigId || ''
-    this.getPageInfo(this.pigId)
   }
+
+  // mounted () {
+  //   this.pigId = this.$route.query.pigId || ''
+  //   this.getPageInfo(this.pigId)
+  // }
 }
 </script>
 <style lang="scss">
 .p-pin-pig-wrap {
-  .pin-page-wrap {
-    // display: flex;
-    // flex-direction: column;
-    // height: calc(100vh - 46px);/*no*/
-    // padding: 20px 30px;
-    // background: #F3F3F3;
-    // border: 1px solid blue;
-    // overflow: auto;
-  }
+  // .pin-page-wrap {
+  //   display: flex;
+  //   flex-direction: column;
+  //   height: calc(100vh - 46px);
+  //   padding: 20px 30px;
+  //   background: #F3F3F3;
+  //   border: 1px solid blue;
+  //   overflow: auto;
+  // }
   .van-sidebar-item--select {
     color: #B22E2A;
     background-color: #fff!important;
@@ -363,15 +342,15 @@ export default {
 
   .pig-info-wrap {
     background-color: #B22E2A;
-    border-radius: 10px;/*no*/
+    border-radius: 10px;
     box-shadow: 6px 11px 11px 2px rgba(120, 51, 16, 0.06);
     .pig-info-top {
       width: 100%;
       height: 200px;
       text-align: left;
       background-color: #fff;
-      border-radius: 10px;/*no*/
-      border-top-right-radius: 40px;/*no*/
+      border-radius: 10px;
+      border-top-right-radius: 40px;
       .text-wrap {
         width: calc(100% - 230px);
         height: 100%;
@@ -388,7 +367,7 @@ export default {
       }
       .block {
         height: 36px;
-        padding: 0 10px;/*no*/
+        padding: 0 10px;
         font-size: 22px;
         color: #fff;
         border-radius: 6px;
@@ -408,7 +387,7 @@ export default {
       display: block;
       position: absolute;
       top: 20px;
-      right: -10px;/*no*/
+      right: -10px;
     }
     .pig-order-detail {
       width: 100%;

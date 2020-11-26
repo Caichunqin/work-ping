@@ -132,7 +132,7 @@ export default {
       width: 100%;
       height: 200px;
       background-color: #fff;
-      border-radius: 10px;/*no*/
+      border-radius: 10px;
       .text-wrap {
         width: calc(100% - 230px);
         height: 100%;
@@ -149,7 +149,7 @@ export default {
       }
       .block {
         height: 36px;
-        padding: 0 10px;/*no*/
+        padding: 0 10px;
         font-size: 22px;
         color: #fff;
         border-radius: 6px;
@@ -162,7 +162,7 @@ export default {
       opacity: 0;
       background-color: #fff;
       border-radius: 10px;
-      border-top: 1px solid #F1F1F0;/*no*/
+      border-top: 1px solid #F1F1F0;
       .detail-img {
         height: 32px;
       }

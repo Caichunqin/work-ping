@@ -179,7 +179,7 @@ export default {
       width: 100%;
       height: 200px;
       background-color: #fff;
-      border-radius: 10px;/*no*/
+      border-radius: 10px;
       .text-wrap {
         width: calc(100% - 230px);
         height: 100%;
@@ -196,7 +196,7 @@ export default {
       }
       .block {
         height: 36px;
-        padding: 0 10px;/*no*/
+        padding: 0 10px;
         font-size: 22px;
         color: #fff;
         border-radius: 6px;
@@ -209,7 +209,7 @@ export default {
       height: 0px;
       opacity: 0;
       background-color: #fff;
-      border-top: 1px solid #F1F1F0;/*no*/
+      border-top: 1px solid #F1F1F0;
       &:nth-last-of-type(1) {
         border-radius: 0 0 10px 10px;
       }
@@ -217,7 +217,7 @@ export default {
       //   border: 1px solid green;
       //   position: absolute;
       //   top: 24px;
-      //   right: -10px;/*no*/
+      //   right: -10px;
       //   width: 100px;
       //   .highest-img {
       //     width :100%;
@@ -235,7 +235,7 @@ export default {
         display: block;
         position: absolute;
         top: 24px;
-        right: -10px;/*no*/
+        right: -10px;
       }
       .detail-img {
         height: 32px;
