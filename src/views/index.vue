@@ -3,7 +3,7 @@
     <van-nav-bar
       title="罗牛山">
     </van-nav-bar>
-    <div class="c-page-wrap">
+    <div class="c-d-f c-fd-c index-page-wrap">
       <div class="index-top"></div>
       <div>
         <div class="index-btn-wrap">
@@ -34,8 +34,15 @@ export default {
     border-radius: 10px;
   }
 
+  .index-page-wrap {
+    min-height: calc(100vh - 96PX);
+    padding: 20px 30px;
+    padding-bottom: 30px;
+    background: #F3F3F3;
+  }
   .index-top {
-    height: 820px;
+    flex: 1;
+    // height: 820px;
     background-color: #fff;
   }
   .index-btn-wrap {
