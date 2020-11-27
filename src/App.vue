@@ -13,7 +13,6 @@ html {
 }
 body {
   // font-size: calc(100vw / 75);
-  // background-color: rgba(243, 243, 243, 1);
   font-size: 13.333vw
 }
 div, section {

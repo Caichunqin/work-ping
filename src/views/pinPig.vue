@@ -27,10 +27,10 @@
         </div>
       </div>
       <div class="tree-list-wrap">
-        <van-tabs v-model="activeName" color="#B22E2A" background="transparent" title-active-color="#373737" title-inactive-color="#B3B3B3" sticky>
+        <van-tabs v-model="activeName" color="#B22E2A" background="#F3F3F3" title-active-color="#373737" title-inactive-color="#B3B3B3" sticky>
           <van-tab title="部位分类">
             <div class="c-mt-30" v-if="activeName === 0">
-              <van-tree-select :items="placeItems" :main-active-index.sync="placeTreeActive" @click-nav="arg => selectTree(arg, 1)" height="70vh">
+              <van-tree-select :items="placeItems" :main-active-index.sync="placeTreeActive" @click-nav="arg => selectTree(arg, 1)">
                 <template #content>
                   <div v-if="placeGoodsList.length > 0">
                     <div v-for="(item, index) in placeGoodsList" :key="index" class="c-ml-20 c-mb-20 c-mr-10 c-bc-white c-br-10">
@@ -67,7 +67,7 @@
           </van-tab>
           <van-tab title="做法分类">
             <div class="c-mt-30" v-if="activeName === 1">
-              <van-tree-select :items="menuItems" :main-active-index.sync="menuTreeActive" @click-nav="arg => selectTree(arg, 2)" height="70vh">
+              <van-tree-select :items="menuItems" :main-active-index.sync="menuTreeActive" @click-nav="arg => selectTree(arg, 2)">
                 <template #content>
                   <div v-if="menuGoodsList.length > 0">
                     <div v-for="(item, index) in menuGoodsList" :key="index" class="c-ml-20 c-mb-20 c-mr-10 c-bc-white c-br-10">
@@ -280,7 +280,7 @@ export default {
       console.log('竞拍了：', id)
     }
   }
-
+  // 恢复以下注释，请求页面数据
   // mounted () {
   //   this.pigId = this.$route.query.pigId || ''
   //   this.getPageInfo(this.pigId)
@@ -292,7 +292,7 @@ export default {
   // .pin-page-wrap {
   //   display: flex;
   //   flex-direction: column;
-  //   height: calc(100vh - 46px);
+  //   height: calc(100vh - 46PX);
   //   padding: 20px 30px;
   //   background: #F3F3F3;
   //   border: 1px solid blue;
@@ -314,6 +314,9 @@ export default {
   // .van-sidebar {
   //   width: 30px!important;
   // }
+  .van-tree-select {
+    height: calc(100vh - 100px)!important;
+  }
   .van-tree-select__content {
     flex: 5!important;
   }
