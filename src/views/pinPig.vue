@@ -19,7 +19,7 @@
               <span>竞拍截止时间：</span>
               <van-count-down :time="pigInfo.deadline">
                 <template #default="timeData">
-                  <span class="block">{{ timeData.hours }}:{{ timeData.minutes }}:{{ timeData.seconds }}</span>
+                  <span class="block">{{timeData.days && timeData.days + '天' || ''}}{{ timeData.hours }}:{{ timeData.minutes }}:{{ timeData.seconds }}</span>
                 </template>
               </van-count-down>
             </div>
@@ -160,7 +160,7 @@ export default {
         img: 'http://pic29.photophoto.cn/20131225/0035035981830687_b.jpg',
         title: '1号猪（97182365）',
         killTime: '2020-11-20',
-        deadline: 12000
+        deadline: 86410000
       },
       // 按部位分类的右侧 list
       placeGoodsList: [{
