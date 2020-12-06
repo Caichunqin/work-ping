@@ -31,6 +31,10 @@ const routes = [
   {
     path: '/pinPig',
     component: () => import(/* webpackChunkName: "pinPig" */ '../views/pinPig.vue')
+  },
+  {
+    path: '/guide',
+    component: () => import(/* webpackChunkName: "guide" */ '../views/guide.vue')
   }
 ]
 

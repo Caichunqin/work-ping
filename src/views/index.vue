@@ -8,7 +8,7 @@
       <div>
         <div class="index-btn-wrap">
           <van-button :icon="require('../assets/guize.png')" block>拼猪规则</van-button>
-          <van-button class="btn-right" :icon="require('../assets/wenhao.png')" block>猪肉选购指南</van-button>
+          <van-button class="btn-right" :icon="require('../assets/wenhao.png')" @click="toUrl('/guide')" block>猪肉选购指南</van-button>
         </div>
         <div class="c-p-r c-mt-30" @click="toUrl('/pigList')">
           <img class="c-d-b btn-bottom-img" src="../assets/index-btn.png">
