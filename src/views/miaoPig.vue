@@ -67,7 +67,7 @@
                 <template #content>
                   <div v-if="menuGoodsList.length > 0">
                     <div v-for="(item, index) in menuGoodsList" :key="index" class="c-ml-20 c-mb-20 c-mr-10 c-bc-white c-br-10">
-                      <div class="c-d-f c-ai-c c-pl-20 c-ptb-15 border">
+                      <div class="c-d-f c-ai-c c-p-r c-pl-20 c-ptb-15 border">
                         <img v-if="item.isMiao" src="../assets/card-red1.png" class="highest-img">
                         <img src="../assets/pai.png" class="c-mr-20 pai-img">
                         <span class="c-fs-30 c-fw-b c-c-text-color-dark">{{item.name}}</span>
@@ -165,7 +165,7 @@ export default {
         // 秒杀价格
         dealPrice: 40.1,
         // 是否已秒杀
-        isMiao: false
+        isMiao: true
       }, {
         id: 2,
         name: '肋排1',
@@ -174,7 +174,7 @@ export default {
         // 秒杀价格
         dealPrice: 40.1,
         // 是否已秒杀
-        isMiao: true
+        isMiao: false
       }],
       // 按做法分类的右侧 list
       menuGoodsList: [{
@@ -194,7 +194,7 @@ export default {
         // 秒杀价格
         dealPrice: 40.1,
         // 是否已秒杀
-        isMiao: false
+        isMiao: true
       }]
     }
   },
