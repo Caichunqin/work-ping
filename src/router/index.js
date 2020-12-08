@@ -35,6 +35,10 @@ const routes = [
   {
     path: '/guide',
     component: () => import(/* webpackChunkName: "guide" */ '../views/guide.vue')
+  },
+  {
+    path: '/miaoPig',
+    component: () => import(/* webpackChunkName: "miaoPig" */ '../views/miaoPig.vue')
   }
 ]
 

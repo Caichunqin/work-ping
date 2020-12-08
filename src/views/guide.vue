@@ -184,6 +184,7 @@ export default {
         .text-wrap {
           // width: calc(100% - 230px);
           height: 100%;
+          overflow-y: scroll;
           // padding: 14px 0;
           // display: flex;
           // flex-direction: column;
