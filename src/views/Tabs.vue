@@ -16,6 +16,12 @@
           <img :src="props.active ? orderIcon.active : orderIcon.inactive" />
         </template>
       </van-tabbar-item>
+      <van-tabbar-item to="/outPrice">
+        <span>我的订单单</span>
+        <template #icon="props">
+          <img :src="props.active ? orderIcon.active : orderIcon.inactive" />
+        </template>
+      </van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
