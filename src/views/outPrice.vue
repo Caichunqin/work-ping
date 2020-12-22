@@ -16,11 +16,28 @@
                 </div>
                 <van-icon :name="activeIndex === index ? 'arrow-up':'arrow-down'"/>
               </div>
-              <div class="c-d-f c-ai-c">
-                <span>收货地址：</span>
-                <van-dropdown-menu active-color="#B22E2A">
+              <div class="arrow-wrap" style="width: 70%;">
+                <van-field
+                  readonly
+                  clickable
+                  :right-icon="showPickerindex === index ? 'arrow-up' : 'arrow-down'"
+                  label="收货地址："
+                  :value="item.address"
+                  placeholder="选择收货地址"
+                  @click="showPickerindex = index"
+                />
+                <van-popup v-model="showPicker" v-if="showPickerindex === index" :close-on-click-overlay="false" position="bottom" round :style="{ height: '40%' }">
+                  <van-picker
+                    show-toolbar
+                    :visible-item-count="4"
+                    :columns="option"
+                    @cancel="showPickerindex = -1"
+                    @confirm="value => changeAddress(value, item, index)"
+                  />
+                </van-popup>
+                <!-- <van-dropdown-menu active-color="#B22E2A">
                   <van-dropdown-item v-model="item.address" :options="option" @change="value => changeAddress(value, item)"/>
-                </van-dropdown-menu>
+                </van-dropdown-menu> -->
               </div>
             </div>
           </div>
@@ -61,13 +78,15 @@ export default {
   data () {
     return {
       activeIndex: '',
+      showPickerindex: -1,
+      showPicker: true,
       dataList: [
         {
           img: 'http://pic29.photophoto.cn/20131225/0035035981830687_b.jpg',
           title: '1号猪（97182365）',
           status: '已完成',
           totalPrice: '82元',
-          address: '地址1',
+          address: '上海市闵行区巴啦啦啦啦巴拉巴拉',
           list: [{
             name: '肋排',
             orderNumber: '4397815389fdhbvdfj',
@@ -95,7 +114,7 @@ export default {
           title: '2号猪（97182365）',
           status: '已完成',
           totalPrice: '82元',
-          address: '地址2',
+          address: '重庆市渝北区中央公园巴啦巴啦啦啦啦啦',
           list: [{
             name: '肋排',
             orderNumber: '4397815389fdhbvdfj',
@@ -119,11 +138,7 @@ export default {
           }]
         }
       ],
-      option: [
-        { text: '地址1', value: '地址1' },
-        { text: '地址2', value: '地址2' },
-        { text: '地址3', value: '地址3' }
-      ]
+      option: ['上海市闵行区巴啦啦啦啦巴拉巴拉', '重庆市渝北区中央公园巴啦巴啦啦啦啦啦巴啦巴', '武汉市武昌区白沙洲大道芭芭拉', '重庆市渝北区中央公园巴啦巴啦啦']
     }
   },
   methods: {
@@ -133,7 +148,9 @@ export default {
       const res = await getOrderList()
       this.dataList = res.data.list
     },
-    changeAddress (value, item) {
+    changeAddress (value, item, index) {
+      this.showPickerindex = -1
+      this.dataList[index].address = value
       console.log('改变后的地址', value)
       console.log('当前操作的订单信息', item)
     }
@@ -146,24 +163,42 @@ export default {
 
 <style lang="scss">
 .p-myoutprice-wrap {
-  .van-dropdown-menu__bar {
-    height: auto!important;
-    box-shadow: none!important;
-  }
-  .van-dropdown-menu__title {
+  // .van-dropdown-menu__bar {
+  //   height: auto!important;
+  //   box-shadow: none!important;
+  // }
+  // .van-dropdown-menu__title {
+  //   font-size: 22px!important;
+  //   color: #7F7F7F!important;
+  //   line-height: normal!important;
+  //   padding: 0 20px 0 0!important;
+  // }
+  .van-cell {
     font-size: 22px!important;
     color: #7F7F7F!important;
+    padding: 0 0!important;
     line-height: normal!important;
-    padding: 0 20px 0 0!important;
   }
-  .van-cell {
-    font-size: 24px!important;
+  .van-field__label {
+    width: auto!important;
+    margin-right: 0!important;
+  }
+  .van-cell__value {
+    padding-left: 5px!important;
+    padding-right: 5px!important;
+    border: 1px solid #A9A9A9!important;
+  }
+  .van-field__control {
     color: #7F7F7F!important;
-    // line-height: normal!important;
   }
 
   .pig-info-wrap {
     text-align: left;
+    .arrow-wrap {
+      .van-icon {
+        font-size: 22px!important;
+      }
+    }
     .pig-info-top {
       width: 100%;
       height: 200px;
