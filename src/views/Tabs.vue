@@ -10,18 +10,21 @@
           <img :src="props.active ? indexIcon.active : indexIcon.inactive" />
         </template>
       </van-tabbar-item>
-      <van-tabbar-item to="/order">
+      <van-tabbar-item to="/outPrice">
         <span>我的订单</span>
         <template #icon="props">
           <img :src="props.active ? orderIcon.active : orderIcon.inactive" />
         </template>
       </van-tabbar-item>
-      <van-tabbar-item to="/outPrice">
-        <span>我的订单单</span>
+      <van-tabbar-item to="/order">
+        <span>我的出价</span>
         <template #icon="props">
-          <img :src="props.active ? orderIcon.active : orderIcon.inactive" />
+          <img :src="props.active ? outPrice.active : outPrice.inactive" />
         </template>
       </van-tabbar-item>
+      <!-- <van-tabbar-item replace to="/order" icon="balance-pay">
+        我的出价
+      </van-tabbar-item> -->
     </van-tabbar>
   </div>
 </template>
@@ -39,6 +42,10 @@ export default {
       orderIcon: {
         active: require('../assets/order-red.png'),
         inactive: require('../assets/order-grey.png')
+      },
+      outPrice: {
+        active: require('../assets/outprice-red.png'),
+        inactive: require('../assets/outprice-grey.png')
       }
     }
   }

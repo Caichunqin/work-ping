@@ -22,7 +22,7 @@
                   clickable
                   :right-icon="showPickerindex === index ? 'arrow-up' : 'arrow-down'"
                   label="收货地址："
-                  :value="item.address"
+                  :value="item.addressLabel"
                   placeholder="选择收货地址"
                   @click="showPickerindex = index"
                 />
@@ -30,14 +30,12 @@
                   <van-picker
                     show-toolbar
                     :visible-item-count="4"
+                    value-key="text"
                     :columns="option"
                     @cancel="showPickerindex = -1"
                     @confirm="value => changeAddress(value, item, index)"
                   />
                 </van-popup>
-                <!-- <van-dropdown-menu active-color="#B22E2A">
-                  <van-dropdown-item v-model="item.address" :options="option" @change="value => changeAddress(value, item)"/>
-                </van-dropdown-menu> -->
               </div>
             </div>
           </div>
@@ -86,7 +84,8 @@ export default {
           title: '1号猪（97182365）',
           status: '已完成',
           totalPrice: '82元',
-          address: '上海市闵行区巴啦啦啦啦巴拉巴拉',
+          // addressValue: '',
+          // addressLabel: '上海市闵行区巴啦啦啦啦巴拉巴拉',
           list: [{
             name: '肋排',
             orderNumber: '4397815389fdhbvdfj',
@@ -114,7 +113,8 @@ export default {
           title: '2号猪（97182365）',
           status: '已完成',
           totalPrice: '82元',
-          address: '重庆市渝北区中央公园巴啦巴啦啦啦啦啦',
+          addressValue: '',
+          addressLabel: '重庆市渝北区中央公园巴啦巴啦啦啦啦啦',
           list: [{
             name: '肋排',
             orderNumber: '4397815389fdhbvdfj',
@@ -138,7 +138,19 @@ export default {
           }]
         }
       ],
-      option: ['上海市闵行区巴啦啦啦啦巴拉巴拉', '重庆市渝北区中央公园巴啦巴啦啦啦啦啦巴啦巴', '武汉市武昌区白沙洲大道芭芭拉', '重庆市渝北区中央公园巴啦巴啦啦']
+      option: [
+        {
+          text: '上海市闵行区巴啦啦啦啦巴拉巴拉',
+          value: 1
+        },
+        {
+          text: '重庆市渝北区中央公园巴啦巴啦啦啦啦啦巴啦巴',
+          value: 2
+        },
+        {
+          text: '武汉市武昌区白沙洲大道芭芭拉',
+          value: 3
+        }]
     }
   },
   methods: {
@@ -150,7 +162,9 @@ export default {
     },
     changeAddress (value, item, index) {
       this.showPickerindex = -1
-      this.dataList[index].address = value
+      // addressValue - 地址key, addressLabel - 地址展示的值
+      this.dataList[index].addressLabel = value.text
+      this.dataList[index].addressValue = value.value
       console.log('改变后的地址', value)
       console.log('当前操作的订单信息', item)
     }
@@ -163,16 +177,6 @@ export default {
 
 <style lang="scss">
 .p-myoutprice-wrap {
-  // .van-dropdown-menu__bar {
-  //   height: auto!important;
-  //   box-shadow: none!important;
-  // }
-  // .van-dropdown-menu__title {
-  //   font-size: 22px!important;
-  //   color: #7F7F7F!important;
-  //   line-height: normal!important;
-  //   padding: 0 20px 0 0!important;
-  // }
   .van-cell {
     font-size: 22px!important;
     color: #7F7F7F!important;
@@ -182,6 +186,7 @@ export default {
   .van-field__label {
     width: auto!important;
     margin-right: 0!important;
+    color: #7F7F7F!important;
   }
   .van-cell__value {
     padding-left: 5px!important;
@@ -237,23 +242,6 @@ export default {
       &:nth-last-of-type(1) {
         border-radius: 0 0 10px 10px;
       }
-      // .highest-img-wrap {
-      //   border: 1px solid green;
-      //   position: absolute;
-      //   top: 24px;
-      //   right: -10px;
-      //   width: 100px;
-      //   .highest-img {
-      //     width :100%;
-      //     display: block;
-      //   }
-      //   .highest-text {
-      //     position: absolute;
-      //     top: 6px;
-      //     left: 50%;
-      //     transform: translateX(-50%);
-      //   }
-      // }
       .highest-img {
         width : 90px;
         display: block;
@@ -306,15 +294,6 @@ export default {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
-  }
-  .slide-fade-enter-active, .slide-fade-leave-active {
-    transition: all 1s ease;
-    max-height: 1000px;
-  }
-  .slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active for below version 2.1.8 */ {
-    opacity: 0;
-    max-height: 0px;
   }
 }
 </style>
