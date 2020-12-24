@@ -10,13 +10,13 @@
           <img :src="props.active ? indexIcon.active : indexIcon.inactive" />
         </template>
       </van-tabbar-item>
-      <van-tabbar-item to="/outPrice">
+        <van-tabbar-item to="/order">
         <span>我的订单</span>
         <template #icon="props">
           <img :src="props.active ? orderIcon.active : orderIcon.inactive" />
         </template>
       </van-tabbar-item>
-      <van-tabbar-item to="/order">
+      <van-tabbar-item to="/outPrice">
         <span>我的出价</span>
         <template #icon="props">
           <img :src="props.active ? outPrice.active : outPrice.inactive" />
