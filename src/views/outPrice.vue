@@ -16,6 +16,9 @@
                 </div>
                 <van-icon :name="activeIndex === index ? 'arrow-up':'arrow-down'"/>
               </div>
+              <div>
+                  <span>联系电话：</span><span class="c-fs-24 c-fw-b c-c-text-red">{{item.phone}}</span>
+                </div>
               <div class="arrow-wrap" style="width: 70%;">
                 <van-field
                   readonly
@@ -84,8 +87,9 @@ export default {
           title: '1号猪（97182365）',
           status: '已完成',
           totalPrice: '82元',
-          // addressValue: '',
-          // addressLabel: '上海市闵行区巴啦啦啦啦巴拉巴拉',
+          phone: '18212345678',
+          addressValue: '',
+          addressLabel: '上海市闵行区巴啦啦啦啦巴拉巴拉',
           list: [{
             name: '肋排',
             orderNumber: '4397815389fdhbvdfj',
@@ -113,6 +117,7 @@ export default {
           title: '2号猪（97182365）',
           status: '已完成',
           totalPrice: '82元',
+          phone: '18212345678',
           addressValue: '',
           addressLabel: '重庆市渝北区中央公园巴啦巴啦啦啦啦啦',
           list: [{
@@ -212,7 +217,7 @@ export default {
       .text-wrap {
         width: calc(100% - 230px);
         height: 100%;
-        padding: 16px 0;
+        padding: 14px 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
